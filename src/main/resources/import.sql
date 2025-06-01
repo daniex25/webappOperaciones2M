@@ -1,0 +1,5 @@
+INSERT INTO moperaciones(mcodigo,mdescripcion,mcantidad,mimporte,migv,mtotal,mregistro) VALUES('O001','Construccion de Viviendas',1,100000,18000,118000,'2025-05-15')
+INSERT INTO moperaciones(mcodigo,mdescripcion,mcantidad,mimporte,migv,mtotal,mregistro) VALUES('O002','Construccion de SSHH',1,50000,9000,59000,'2025-05-15')
+INSERT INTO moperaciones(mcodigo,mdescripcion,mcantidad,mimporte,migv,mtotal,mregistro) VALUES('O003','Construccion de Veredas',1,100000,18000,118000,'2025-05-15')
+INSERT INTO moperaciones(mcodigo,mdescripcion,mcantidad,mimporte,migv,mtotal,mregistro) VALUES('O004','Construccion de Caseta',1,50000,9000,59000,'2025-05-15')
+INSERT INTO moperaciones(mcodigo,mdescripcion,mcantidad,mimporte,migv,mtotal,mregistro) VALUES('O005','Construccion de Muros',1,10000,1800,11800,'2025-05-15')

@@ -1,0 +1,93 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decore="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Editar Operaciones</title>
+</head>
+
+<body>
+	<div id="contenido">
+		<div class="card card-primary card-outline mb-4">
+			<div class="card">
+				<div class="card-header">
+					<i date-lte-icon="collapse" class="bi bi-pencil-square"></i>
+					Editar Operaciones
+				</div>
+				<div class="card-body">
+					
+					<form th:action="@{/edit}" th:object="${mOperacion}" method="post" id="formOperacion" 
+										onsubmit="EditOperacion(event)">
+						<div class="row">
+							<div class="col-md-2">
+								<br><br><br><br>
+								<div class="info-box">
+									<span class="info-box-icon text-bg-primary shadow-sm">
+										<i class="bi bi-pencil-square text-white"></i>
+
+									</span>
+									<div class="info-box-content">
+										<span class="info-box-text">Editar</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="form-group">
+								<label>Id</label>
+								<input type="text" th:field="*{mIdOperacion}" class="form-control" readonly>
+								</div>
+								<div class="form-group">
+									<label>Codigo</label>
+									<input type="text" th:field="*{mCodigo}" class="form-control" 
+									placeholder="Ingresar Codigo operacion" required />
+								</div>
+								<div class="form-group">
+									<label>Decripcion</label>
+									<input type="text" th:field="*{mDescripcion}" class="form-control"  placeholder="Ingresar nombre de la operacion"/>
+								</div>
+								<div class="form-group">
+								<label>Cantidad</label>
+								<input type="text" th:field="*{mCantidad}" class="form-control" placeholder="Ingresar cantidad de Operacion">
+								</div>
+								<div class="form-group">
+		                            <label>Importe</label>
+									<input type="text" th:field="*{mImporte}" 
+									class="form-control"
+									 placeholder="Ingresar Costo" required/>				
+								</div>
+
+							</div>
+							<div class="col-md-5">
+                                 <div class="form-group">
+								   <label>Igv</label>
+								   <input type="text" th:field="*{mIgv}" class="form-control" requi
+								   required/>
+								 </div>
+								 <div class="form-group">
+								  <label>Total</label>
+								  <input type="text" 
+								  th:field="*{mTotal}"
+								   class="form-control" required/>  
+								</div>
+								<br>
+								 <div class="form-group">
+									<button class="btn btn-primary" type="submit">
+										<i class="bi bi-floppy">Guardar</i>
+								      </button>
+									</div>
+							</div>
+						</div>
+						<!--<input type="hidden" th:field="*{mIdOperacion}"/>-->
+					</form>
+				</div>
+				<div class="card-footer">
+				    Registre sus Operaciones
+					<a href="#"
+					class="link-primary">Derechos reservados
+				Empresa de Soluciones Eficientes S.A.</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

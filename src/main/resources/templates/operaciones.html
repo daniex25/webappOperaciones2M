@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decore="~{layout}">
+	<head>
+    <meta charset="UTF-8">
+	<title>Listado de las Operaciones</title>
+    </head>
+	<body>
+		<div id="contenido">
+    <p>Id:<span th:text="${operacion.IdOperacion}"></span></p>
+    <p>Codigo:<span th:text="${operacion.Codigo}"></span></p>
+    <p>Cantidad:<span th:text="${operacion.Cantidad}"></span></p>
+	<p>Importe:<span th:text="${operacion.Importe}"></span></p>
+	<p>Igv:<span th:text="${operacion.Igv}"></span></p>
+	<p>Total:<span th:text="${operacion.Total}"></span></p>
+		</div>
+	
+	</body>	
+</html>

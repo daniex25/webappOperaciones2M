@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decore="~{layout}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Listado de Operaciones</title>
+</head>
+
+<body>
+	<div id="contenido">
+		<div class="card card-primary card-outline mb-4">
+			<div class="card">
+				<div class="card-header">
+					Listado de Operaciones DB
+				</div>
+
+
+
+				<div class="card-header">
+					<div class="row">
+						<div class="col-2">
+							<a class="btn btn-success btn-sm text-white" onclick="cargarVista('/create')" role="button">
+								<i class="bi bi-plus-square"></i>
+							</a>
+						</div>
+						<div class="col-2">
+						</div>
+						<div class="col-8">
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
+					<table class="table table-hover table-bordered table-sm">
+						<thead>
+							<tr>
+								<th>
+									<center>
+										<strong>
+											Id
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Codigo
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Descripcion
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Importe
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Igv
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Total
+										</strong>
+									</center>
+								</th>
+								<th>
+									<center><strong>
+											Registro
+										</strong></center>
+								</th>
+								<th>
+									<center>
+										<strong>
+											Opciones
+										</strong>
+									</center>
+								</th>
+							</tr>
+
+						</thead>
+						<tbody>
+							<tr th:each="LOperacion:${MOperaciones}">
+								<td align="center" th:text="${LOperacion.mIdOperacion}"></td>
+								<td align="center" th:text="${LOperacion.mCodigo}"></td>
+								<td align="left" th:text="${LOperacion.mDescripcion}"></td>
+								<td align="center" th:text="${LOperacion.mImporte}"></td>
+								<td align="center" th:text="${LOperacion.mIgv}"></td>
+								<td align="center" th:text="${LOperacion.mTotal}"></td>
+								<td align="center" th:text="${LOperacion.mRegistro}"></td>
+								<td align="center">
+									<a class="btn btn-primary btn-sm" role="button"  
+										th:onclick="'cargarVista(\'/edit/' + ${LOperacion.mIdOperacion} + '\')'">
+										<i class="bi bi-pencil-square"></i>
+									</a>
+	
+									<a class="btn btn-warning btn-sm" role="button"
+									th:onclick="'cargarVista(\'/details/' + ${LOperacion.mIdOperacion} + '\')'">
+										<i class="bi bi-eye-fill text-white"></i>
+									</a>
+									<a class="btn btn-danger btn-sm" role="button"
+									th:onclick="'cargarVista(\'/delete/' + ${LOperacion.mIdOperacion} + '\')'">
+										<i class="bi bi-trash3-fill btn-sm text-white"></i>
+									</a>
+								</td>
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer">
+					Empresa de Soluciones Eficientes S.A.
+					<a href="#" target="_blank" class="link-primary">Derechos reservados
+						Empresa de Soluciones Eficientes S.A.
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

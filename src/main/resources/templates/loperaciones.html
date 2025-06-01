@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decore="~{layout}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listado de Operaciones</title>
+</head>
+
+<body>
+
+	<div id="contenido">
+		<div class="card card-primary card-outline mb-4">
+		  <div class="card">
+		    <div class="card-header">
+			  Listado de Operaciones
+			</div>
+			<div class="card-body">
+				<table class="table table-hover table-bordered table-sm">
+							<thead>
+								<tr>
+									<th>
+										<center>
+											<strong>
+												Id
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Codigo
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Descripcion
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Cantidad
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Importe
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Igv
+											</strong>
+										</center>
+									</th>
+									<th>
+										<center>
+											<strong>
+												Total
+											</strong>
+										</center>
+									</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="loperacionv1: ${loperaciones}">
+								    <td align="center" th:text="${loperacionv1.IdOperacion}"></td>
+									<td align="center" th:text="${loperacionv1.Codigo}"></td>
+									<td align="left" th:text="${loperacionv1.Descripcion}"></td>
+									<td align="center" th:text="${loperacionv1.Cantidad}"></td>
+									<td align="center" th:text="${loperacionv1.Importe}"></td>
+									<td align="center" th:text="${loperacionv1.Igv}"></td>
+									<td align="center" th:text="${loperacionv1.Total}"></td>
+								</tr>
+							</tbody>
+						</table>
+			</div>	
+			<div class="card-footer">
+			     Empresa de Construccion Selima S.A.  
+			</div>
+		  </div>
+	
+		</div>
+		
+		
+	</div>
+
+</body>
+
+</html>
