@@ -93,5 +93,17 @@ public String eliminarOperacion(@RequestParam("mIdOperacion")Long id,Model model
 		return "listar";
 	}
 	}
+
+	@RequestMapping(value="/details/{id}")
+	public String Details(@PathVariable(value="id")long id, Map<String,Object> model) {
+		MOperaciones mOperacion = null;
+		if (id > 0) {
+			mOperacion = mOperacionDAO.findOne(id);
+		}else {
+			return "listar";
+		}
+		model.put("mOperacion", mOperacion);
+		return "details";
+	}
  }
 
