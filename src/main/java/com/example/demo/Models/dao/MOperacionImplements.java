@@ -1,4 +1,4 @@
-package com.example.demo.Models.dao;
+/*package com.example.demo.Models.dao;
 
 import java.util.List;
 
@@ -50,3 +50,4 @@ public class MOperacionImplements implements IMOperacionDAO {
 
 
 }
+*/

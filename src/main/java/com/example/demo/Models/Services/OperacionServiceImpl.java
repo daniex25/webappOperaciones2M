@@ -18,7 +18,7 @@ public class OperacionServiceImpl implements IMOperacionService {
 	@Transactional
 	public List<MOperaciones> findAll() {
 		// TODO Auto-generated method stub
-		return mOperacionDAO.findAll();
+		return (List<MOperaciones>) mOperacionDAO.findAll();
 	}
 
 	@Override
@@ -29,25 +29,26 @@ public class OperacionServiceImpl implements IMOperacionService {
 		
 	}
 
-	@Override
+	/*@Override
 	@Transactional
 	public void saveEdit(MOperaciones moperaciones) {
 		// TODO Auto-generated method stub
 		mOperacionDAO.saveEdit(moperaciones);
 		
 	}
+	*/
 
 	@Override
 	@Transactional
 	public MOperaciones findOne(long id) {
 		// TODO Auto-generated method stub
-		return mOperacionDAO.findOne(id);
+		return mOperacionDAO.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		mOperacionDAO.delete(id);
+		mOperacionDAO.deleteById(id);
 	}
 }

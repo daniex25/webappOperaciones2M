@@ -58,7 +58,8 @@ public class MOperacionController {
 @PostMapping("/edit")
 public String guardarOperacion(@ModelAttribute("mOperacion") MOperaciones mOperacion, Model model) {
        try {
-    	   mOperacionService.saveEdit(mOperacion); 
+    	   //mOperacionService.saveEdit(mOperacion); 
+    	   mOperacionService.save(mOperacion); 
            model.addAttribute("MOperaciones", mOperacionService.findAll());
            return "listar"; 
        } catch (Exception e) {

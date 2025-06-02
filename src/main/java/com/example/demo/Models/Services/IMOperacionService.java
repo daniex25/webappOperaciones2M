@@ -9,7 +9,7 @@ public interface IMOperacionService {
 
 	public void save(MOperaciones moperaciones);
 
-	public void saveEdit(MOperaciones moperaciones);
+	//public void saveEdit(MOperaciones moperaciones);
 
 	public MOperaciones findOne(long id);
 
