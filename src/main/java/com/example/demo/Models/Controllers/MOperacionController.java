@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.Models.Services.IMOperacionService;
 import com.example.demo.Models.dao.IMOperacionDAO;
 import com.example.demo.Models.entity.MOperaciones;
 
 @Controller
 public class MOperacionController {
  @Autowired
- private IMOperacionDAO mOperacionDAO;
+ //private IMOperacionDAO mOperacionDAO;
+ private IMOperacionService mOperacionService;
  @RequestMapping(value="/listar",method=RequestMethod.GET)
  public String Listar(Model model) {
 	 model.addAttribute("Titulo", "Listado de Operaciones");
-	 model.addAttribute("MOperaciones",mOperacionDAO.findAll());
+	 model.addAttribute("MOperaciones",mOperacionService.findAll());
 	 //MOperacionDAO
 	 return "listar";
  }
@@ -35,8 +37,8 @@ public class MOperacionController {
  }
  @RequestMapping(value="/create",method=RequestMethod.POST)
  public String guardar(MOperaciones moperacion,Model model) {
-	 mOperacionDAO.save(moperacion);
-	 model.addAttribute("MOperaciones", mOperacionDAO.findAll());
+	 mOperacionService.save(moperacion);
+	 model.addAttribute("MOperaciones", mOperacionService.findAll());
 	 return "listar";
  }
 
@@ -44,7 +46,7 @@ public class MOperacionController {
  public String Edit(@PathVariable(value="id")long id,Map<String, Object>model) {
 	 MOperaciones mOperacion=null;
 	 if(id>0) {
-		 mOperacion=mOperacionDAO.findOne(id);
+		 mOperacion=mOperacionService.findOne(id);
 	 }else {
 		 return "listar";
 	 }
@@ -56,13 +58,13 @@ public class MOperacionController {
 @PostMapping("/edit")
 public String guardarOperacion(@ModelAttribute("mOperacion") MOperaciones mOperacion, Model model) {
        try {
-           mOperacionDAO.saveEdit(mOperacion); 
-           model.addAttribute("MOperaciones", mOperacionDAO.findAll());
+    	   mOperacionService.saveEdit(mOperacion); 
+           model.addAttribute("MOperaciones", mOperacionService.findAll());
            return "listar"; 
        } catch (Exception e) {
            model.addAttribute("error", "Error al guardar: " + e.getMessage());
 
-           model.addAttribute("MOperaciones", mOperacionDAO.findAll());
+           model.addAttribute("MOperaciones", mOperacionService.findAll());
            return "listar"; 
        }
    }
@@ -71,7 +73,7 @@ public String delete(@PathVariable(value="id")long id,Map<String,Object>model) {
 	MOperaciones mOperacion=null;
 	if(id>0)
 	{
-		mOperacion=mOperacionDAO.findOne(id);
+		mOperacion=mOperacionService.findOne(id);
 	}else {
 		return "listar";
 	}
@@ -83,13 +85,13 @@ public String delete(@PathVariable(value="id")long id,Map<String,Object>model) {
 public String eliminarOperacion(@RequestParam("mIdOperacion")Long id,Model model)
 {
 	try {
-		mOperacionDAO.delete(id);//Eliminamos el registro
-		model.addAttribute("MOperaciones",mOperacionDAO.findAll());
+		mOperacionService.delete(id);//Eliminamos el registro
+		model.addAttribute("MOperaciones",mOperacionService.findAll());
 		return "listar";
 	}
 	catch(Exception e){
 		model.addAttribute("error", "Error al eliminar:"+e.getMessage());
-		model.addAttribute("MOperaciones",mOperacionDAO.findAll());
+		model.addAttribute("MOperaciones",mOperacionService.findAll());
 		return "listar";
 	}
 	}
@@ -98,7 +100,7 @@ public String eliminarOperacion(@RequestParam("mIdOperacion")Long id,Model model
 	public String Details(@PathVariable(value="id")long id, Map<String,Object> model) {
 		MOperaciones mOperacion = null;
 		if (id > 0) {
-			mOperacion = mOperacionDAO.findOne(id);
+			mOperacion = mOperacionService.findOne(id);
 		}else {
 			return "listar";
 		}
